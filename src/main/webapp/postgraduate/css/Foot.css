@@ -1,0 +1,37 @@
+.contactInfo{
+     width:700px;
+     height:auto;
+     margin-left:150px;  
+}
+.contactInfo ul{
+    margin:0;
+    padding:0;
+    list-style: none;
+    color:#fff;
+    font-size:12px;
+    line-height: 24px;
+}
+.QRcode{
+    display:flex;
+    flex-direction: row;
+    width:320px;
+    height:auto;
+}
+.QRcode a:link,a:hover{
+     text-decoration: none;
+     cursor:pointer; 
+}
+.QRcode p{
+    /*依次为上、右、下、左*/
+    padding:0px 5px 0px 0px;
+    margin:0;
+    text-align:right;
+    line-height: 100px;
+    color:#ffffff;
+    width:100px;
+    height:100px;
+}
+.QRcode a img{
+    width:100px;
+    border:0;
+}

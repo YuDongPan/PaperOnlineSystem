@@ -1,0 +1,97 @@
+.listRightModel{
+     display: flex;
+     flex-direction: column;
+     width: 280px;
+     height:612px;
+     margin-top:20px;
+     margin-left:30px;
+}
+.sevSystem{
+     width:280px;
+     height:184px;
+     margin-bottom:10px;
+}
+.regSystem{
+    width:280px;
+    height:155px;
+    margin-bottom: 10px;
+}
+.infoSystem{
+    width:280px;
+    height:155px;
+    margin-bottom:10px;
+}
+.sy-title{
+     width:280px;
+     height:35px;
+     line-height:35px;
+     color:#fff;
+     font-size:10px;
+     background:#004098;
+     margin-bottom:4px;
+}
+.sy-title h3{
+    display:block;
+    /*依次为上、右、下、左*/
+    margin:0px 0px 0px 15px;
+    height:35px;
+    font-size:16px;
+    float:left;
+}
+.sy-title h3 img {
+    margin-right: 5px;
+    vertical-align: middle;
+}
+.sy-list{
+    width:280px;
+    height:145px;
+}
+.sy-list ul{
+    /*依次为上、右、下、左*/
+    list-style:none;
+    float:left;
+    padding:0;
+    margin:0px 0px 0px 0px;
+}
+.sy-list li{
+    display:list-item;
+    text-align:left;
+    height:29px;
+}
+.sy-list li a:link,a:visited,a:active{
+    text-decoration: none;
+    cursor:pointer;
+    width:260px;
+    height:28px;
+    line-height:28px;
+    color:#333;
+    background:#f2f2f2;
+    margin-bottom:1px;
+    padding-left:20px;
+    display:block;
+    float:left;
+}
+.sy-list li a:hover{
+    text-decoration:none;
+    cursor:pointer;
+    background-color: #ffa880;
+}
+
+.academyLink{
+   width:280px;
+   height:34px;
+   margin-bottom:10px;
+}
+.relevantLink{
+   width:280px;
+   height:34px;
+   margin-bottom:10px;
+}
+select{
+    position:relative;
+    width:280px;
+    font-family: 宋体;
+    height:34px;
+    color:#222222;
+    font-size:10pt;
+}

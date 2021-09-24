@@ -1,0 +1,58 @@
+﻿@charset "utf-8";
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,input,button,textarea,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,#header,hgroup,menu,nav,section,summary,time,mark,audio,video{margin:0;padding:0;}h1,h2,h3,h4,h5,h6{font-size:100%; font-weight:400}input,textarea,select,button{font-family:inherit;vertical-align:middle;}input[type="button"],input[type="submit"]{cursor:pointer;}select,button{cursor:pointer;}table{border-collapse:collapse;border-spacing:0;empty-cells: show;}address,caption,cite,code,dfn,em,th,var{font-style:normal;font-weight:normal;}caption,th{text-align:left;}q:before,q:after{content:"";}abbr,acronym{border:0 none;font-variant:normal;}sup{vertical-align:text-top;}sub{vertical-align:text-bottom;}fieldset,img,a img,iframe{border-style:none;border-width:0;vertical-align: middle;}iframe{overflow:hidden;}textarea{overflow-y:auto;resize:vertical;}legend{color:#000000;}a,a:hover{ text-decoration:none}label{cursor:pointer}article,aside,details,figcaption,figure,footer,#header,hgroup,menu,nav,section{display:block;}html {margin:0 auto; }ol,ul,li{list-style: none;}b{ font-weight:100}input,textarea,button,a{outline:0}.hand{ cursor:pointer}html{ overflow-y:scroll}:focus{outline:none;} :active{outline:none;}::-moz-focus-inner{outline:0 none;}.clear{ clear:both; height:0px; overflow:hidden}.f-l{display:inline;float:left;}.f-r{display:inline;float:right;}.t-l{ text-align:left}.t-r{ text-align:right} .t-c{ text-align:center}  .p-r{ position:relative; z-index:1}.p-a{ position:absolute; z-index:1}.f-c:before, .f-c:after {content:""; display:table;} .f-c:after {clear:both; }.f-c { zoom:1;}.fc-curTop{vertical-align: top;}body{font-family:"Microsoft YaHei","微软雅黑",\5b8b\4f53,Arial, Helvetica, sans-serif;  font-size:13px; background-color:#f6f6f6;}
+
+
+
+::-moz-placeholder { color:#7792b3;}
+:-ms-input-placeholder { color:#7792b3;}
+::-webkit-input-placeholder{color: #7792b3;}
+.bg_img{background: url(../images/login_img1.jpg) no-repeat 50% 0;background-position: center center; background-repeat: no-repeat; background-attachment: fixed; background-size: cover;}
+.bg_img canvas{position: fixed; top: 0px; left: 0px; z-index: -1;}
+.page-login2 .contant{width:780px;display:block;position:relative; z-index: 10; margin:110px auto 0; overflow:hidden;padding-bottom: 50px;}
+.page-login2 .contant .bg{position:absolute;top: 0;left: 0;width:780px;height:100%;background:#fff; filter:alpha(opacity=10); -moz-opacity:0.1; -khtml-opacity: 0.1; opacity: 0.1;z-index: -1; pointer-events: none;}
+.page-login2 .contant .box{width:380px;min-height:480px;margin:0 auto;padding-top: 40px;}
+.page-login2 .contant .box .title{width:379px;height:172px;margin:0px auto 40px;background:url(../images/title_bai.png) no-repeat 50% 0;opacity:0.66;}
+.page-login2 .contant .box .inputs input{width:100%;height:50px;display:block;box-sizing: border-box;background:rgba(0,0,0,0.3);font-size: 18px;color:#fff;border:0;padding:0px 0 0 20px;line-height: 1;}
+.page-login2 .contant .box .inputs .user,.page-login2 .contant .box .inputs .pass{position:relative;}
+.page-login2 .contant .box .inputs .user,.page-login2 .contant .box .inputs .pass{margin-bottom: 20px;}
+.page-login2 .contant .box .inputs .Error{color:#ee3344;font-size: 16px;padding-left: 20px;padding-top: 4px;}
+
+.page-login2 .contant .box .inputs .pass.false input,.page-login2 .contant .box .inputs .user.false input{border: 1px solid #ee3344;color:#ee3344;}
+.page-login2 .verification.false input{border: 1px solid #ee3344!important;color:#ee3344!important;}
+.page-login2 .contant .box .inputs .pass.false:after,.page-login2 .contant .box .inputs .user.false:after{content:'';width:30px;height:30px;display:block;position:absolute;top: 10px;right:-46px;background:url(../images/icon.png) no-repeat 0px -90px;}
+.page-login2 .contant .box .inputs .pass.ture:after,.page-login2 .contant .box .inputs .user.ture:after{content:'';width:30px;height:30px;display:block;position:absolute;top: 10px;right:-46px;background:url(../images/icon.png) no-repeat 0px -44px;}
+.page-login2 .contant .box .inputs .verification {margin-bottom: 12px; font-size:0;}
+.page-login2 .contant .box .inputs .verification input{width:276px;display:inline-block;}
+.page-login2 .contant .box .inputs .verification .img{height:50px;width:99px; margin-left:5px;box-sizing:border-box;background:rgba(0,0,0,0.3);display:inline-block;vertical-align:top;cursor:pointer;}
+.page-login2 .contant .box .inputs .verification .img img{width:100%; height:100%;}
+.page-login2 .contant .box .inputs .chexbox{    display:flex;flex-direction: row;color:#a0c5f2;font-size: 14px;}
+.page-login2 .contant .box .inputs .chexbox .checkboxFour {width:13px;height:13px;display:inline-block; position:relative;}
+.page-login2 .contant .box .inputs .chexbox .checkboxFour input[type=checkbox]{width:13px;height:13px; opacity:0;}
+.page-login2 .contant .box .inputs .chexbox .checkboxFour label{width:13px;height:13px;display:inline-block;vertical-align:middle;-webkit-appearance: none;appearance:none;background:url(../images/icon.png) no-repeat 0 0;padding:0;margin-right: 4px; position:absolute;left:0; top:1px;}
+.page-login2 .contant .box .inputs .chexbox .checkboxFour input[type=checkbox]:checked + label{background-position: 0 -24px;}
+.page-login2 .contant .box .inputs .chexbox{text-align: right;}
+.page-login2 .contant .box .inputs .chexbox a{color:#a0c5f2;margin-left: 4px;}
+.page-login2 .contant .box .inputs .chexbox a:hover{color:#f6f6f6;margin-left: 4px;}
+.page-login2 .contant .box .inputs .btn{background:#4499ff;color:#fff;font-size: 22px;padding-left: 0;margin-top: 30px;margin-bottom: 30px;}
+.page-login2 .contant .box .inputs .zhuce{color:#fff;font-size: 14px;text-align: center;white-space: nowrap;}
+.page-login2 .contant .box .inputs .zhuce a{font-size: 16px;color:#4499ff;}
+.page-login2 .contant .box .inputs input:focus{border: 1px solid #fff;}
+.page-login2 .contant .box .inputs .btn:focus,.page-login2 .contant .box .inputs .chexbox input[type=checkbox]:focus{border:0;}
+.page-footer{color: #4c89a1; font-size: 12px; line-height: 22px; text-align: center;padding: 60px 0; letter-spacing: 1px}
+input:-webkit-autofill {-webkit-box-shadow: 0 0 0px 1000px rgba(0,0,0,0) inset;}
+
+.switch_register{
+    height: 100%;
+    width: 20%;
+    padding:0px 5px;
+    margin:0;
+}
+.switch_register a{
+    text-decoration: underline;
+}
+.autologin_forget{
+    height: 100%;
+    width: 80%;
+    padding:0px 5px;
+    margin:0;
+}

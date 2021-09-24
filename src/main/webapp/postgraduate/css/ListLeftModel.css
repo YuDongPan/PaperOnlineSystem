@@ -1,0 +1,134 @@
+.listLeftModel{
+    width: 790px;
+    height:665px;
+    display:flex;
+    flex-direction: column;
+}
+.modelarea1{
+    width:790px;
+    height: 310px;
+    display: flex;
+    flex-direction: row;
+    background:url('http://gra.hnu.edu.cn/images/sy-1.jpg') 
+    repeat-x left bottom;
+    padding-bottom: 15px;
+}
+.modelarea2{
+    width:790px;
+    height: 310px;
+    display: flex;
+    flex-direction: row;
+}
+.model1{
+   width:380px;
+   height:310px;
+   /*方向依次为上、右、下、左*/
+   margin:0px 30px 0px 0px;
+}
+
+.model2{
+    width:380px;
+    height:310px;
+     /*方向依次为上、右、下、左*/
+   margin:0px 0px 0px 0px;
+}
+.model3{
+    width:380px;
+    height:310px;
+     /*方向依次为上、右、下、左*/
+   margin:0px 30px 0px 0px;
+}
+.model4{
+    width:380px;
+    height:310px;
+     /*方向依次为上、右、下、左*/
+   margin:0px 0px 0px 0px;
+}
+.title{
+    width: 380px;
+    height: 46px;
+    border-bottom: 2px solid #e7e0e0;
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
+.fl {
+    display:flex;
+}
+.title h3{
+    float:left;
+    color:#092b6e;
+    line-height:46px;
+    font-size:18px;
+    margin: 0;
+}
+.title h3 img {
+    vertical-align: middle;
+    margin-right: 5px;
+}
+.more {
+    display:block;
+    float: right;
+    line-height: 46px;
+    color: #999;
+    font-family: '宋体';
+    font-size: 12px;
+    margin-right: 10px;
+}
+a:link, a:visited{
+    text-decoration: none;
+    cursor: pointer;
+}
+a:hover{
+    color:#ffa880;
+}
+.subtitile{
+    width:400px;
+    height:38px;
+    margin:0;
+}
+.hndx-con {
+    width: 380px;
+    height: 240px;
+    margin-bottom: 10px;
+}
+
+.hndx-con li{
+        background: url('../img/qdt.jpg') no-repeat left center;
+        height: 30px;
+        line-height: 30px;
+        padding-left: 15px;
+        width: 365px;
+        font-size: 12px;
+}
+.hndx-con ul{
+    width:380px;
+    height: 240px;
+    list-style:none;
+    float:left;
+    /*方向依次为上、右、下、左*/
+    padding:0px 0px 0px 0px;
+    margin:0px 0px 0px 0px;
+    border:0px;
+}
+.hndx-con li a{
+    display: block;
+    height:30px;
+    color:#333;
+    float:left;
+    width:270px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.hndx-con li a:hover{
+    color:#ffa880;
+}
+.hndx-con li i {
+    margin:0;
+    display: block;
+    float:right;
+    text-align: right;
+    color: #999;
+    font-style: normal;
+}
+

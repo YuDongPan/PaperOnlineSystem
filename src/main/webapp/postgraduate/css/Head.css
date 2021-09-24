@@ -1,0 +1,50 @@
+.topModel{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    width:1100px;
+    /*依次为上、右、下、左*/
+    margin:0px 124.5px 0px 124.5px;
+}
+.logo{
+    width:355px;
+    height:115px;
+}
+.logo a:link,a:visited,a:hover,a:active{
+    text-decoration: none;
+    cursor:pointer;
+}
+.logo a img{
+    vertical-align: middle;
+    border:0;
+}
+.search{
+    display: flex;
+    flex-direction:row;
+    width:217px;
+    height:28px;
+    background:url('../img/search.png') no-repeat;
+    padding:0px 0px 0px 15px;
+    margin:45px 0px 0px 0px;
+}
+.search-input{
+    margin: 0;
+    border:0;
+    padding: 0;
+    width:172px;
+    line-height:28px;
+    background: none;
+    height:28px;
+    font-size:12px;
+    color:#003671;
+}
+.search-btn{
+    width:45px;
+    height:28px;
+    float:right;
+}
+button,input{
+    font-size:100%;
+    font-family: '微软雅黑', Arial, sans-serif;
+}

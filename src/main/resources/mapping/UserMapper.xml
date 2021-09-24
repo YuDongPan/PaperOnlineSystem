@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pyd.paperonlinesystem.mapper.UserMapper">
+    <resultMap id="BaseResultMap" type="com.pyd.paperonlinesystem.entity.User">
+        <result column="id" jdbcType="INTEGER" property="id"/>
+        <result column="username" jdbcType="VARCHAR" property="username"/>
+        <result column="password" jdbcType="VARCHAR" property="password"/>
+        <result column="email" jdbcType="VARCHAR" property="email"/>
+        <result column="phonenumber" jdbcType="VARCHAR" property="phonenumber"/>
+    </resultMap>
+
+    <!-- 插入用户 -->
+    <insert id="insertUser" parameterType="com.pyd.paperonlinesystem.entity.User">
+        insert into user(username, password, email, phonenumber) values(#{username}, #{password}, #{email}, #{phonenumber})
+    </insert>
+
+    <!-- 根据用户信息查询用户-->
+    <select id="queryByUser" parameterType="com.pyd.paperonlinesystem.entity.User" resultMap="BaseResultMap">
+        select * from user where username = #{username}  and password = #{password}
+    </select>
+
+    <!-- 根据用户名查询用户-->
+    <select id="queryUserByName" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select * from user where username = #{username}
+    </select>
+
+    <!-- 根据电子邮件查询用户-->
+    <select id="queryUserByEmail" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select * from user where email = #{email}
+    </select>
+
+    <!-- 根据电话号码查询用户-->
+    <select id="queryUserByTel" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select * from user where phonenumber = #{phonenumber}
+    </select>
+
+    <!-- 根据电话号码修改用户密码 -->
+    <update id="updateUser" parameterType="com.pyd.paperonlinesystem.entity.User">
+        update user set password=#{password} where phonenumber=#{phonenumber}
+    </update>
+
+    <!-- 分页功能 -->
+    <select id="queryUserByCondition" parameterType="java.lang.String"
+            resultType="com.pyd.paperonlinesystem.entity.User">
+        select * from user
+        <where>
+            <if test="_parameter != null">
+                id like #{condition}
+                or username like #{condition}
+                or email like #{condition}
+                or phonenumber like #{condition}
+            </if>
+        </where>
+        order by id desc
+    </select>
+
+    <!--查询所有用户-->
+    <select id="queryAllUser" parameterType="java.lang.String"
+            resultType="com.pyd.paperonlinesystem.entity.User">
+        select * from user
+    </select>
+
+</mapper>

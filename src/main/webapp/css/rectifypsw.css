@@ -1,0 +1,10 @@
+body{
+    padding-top: 40px;
+    padding-bottom: 40px;
+    margin-top:50px;
+    background:url('../images/cat.jpg') !important;
+}
+
+#in{
+    opacity: 0.8 !important;
+}

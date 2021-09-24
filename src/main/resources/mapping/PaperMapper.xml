@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pyd.paperonlinesystem.mapper.PaperMapper">
+    <resultMap id="BaseResultMap" type="com.pyd.paperonlinesystem.entity.Paper">
+        <result column="id" jdbcType="INTEGER" property="id"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="type" jdbcType="VARCHAR" property="type"/>
+        <result column="journal" jdbcType="VARCHAR" property="journal"/>
+        <result column="year" jdbcType="INTEGER" property="year"/>
+        <result column="path" jdbcType="VARCHAR" property="path"/>
+        <result column="upload_time" jdbcType="VARCHAR" property="upload_time"/>
+        <result column="title" jdbcType="VARCHAR" property="title"/>
+    </resultMap>
+
+    <!-- 插入论文-->
+    <insert id="insertPaper" parameterType="com.pyd.paperonlinesystem.entity.Paper">
+        insert into Paper(name, type, journal, year, path, title)
+        values(#{name}, #{type}, #{journal}, #{year}, #{path}, #{title})
+    </insert>
+
+    <!-- 查询所有论文 -->
+    <select id="queryAllPaper" parameterType="com.pyd.paperonlinesystem.entity.Paper"
+            resultType="com.pyd.paperonlinesystem.entity.Paper">
+        select * from paper
+    </select>
+
+    <!-- 分页功能 -->
+    <select id="queryPaperByCondition" parameterType="java.lang.String"
+            resultType="com.pyd.paperonlinesystem.entity.Paper">
+        select * from paper
+        <where>
+            <if test="_parameter != null">
+                id like #{condition}
+                or name like #{condition}
+                or journal like #{condition}
+                or year like #{condition}
+                or type like #{condition}
+                or path  like #{condition}
+                or upload_time like #{condition}
+                or title like #{condition}
+            </if>
+        </where>
+        order by id desc
+    </select>
+
+    <!-- 根据论文名称查询 -->
+    <select id="queryPaperByName" parameterType="java.lang.String"
+            resultType="com.pyd.paperonlinesystem.entity.Paper">
+        select * from paper where name = #{name} order by id desc
+    </select>
+
+    <!-- 根据论文标题查询 -->
+    <select id="queryPaperByTitle" parameterType="java.lang.String"
+            resultType="com.pyd.paperonlinesystem.entity.Paper">
+        select * from paper where title = #{title} order by id desc
+    </select>
+
+    <!-- 根据论文种类查询 -->
+    <select id="queryPaperByType" parameterType="java.lang.String"
+            resultType="com.pyd.paperonlinesystem.entity.Paper">
+        select * from paper where type = #{type} order by id desc
+    </select>
+
+
+    <!-- 根据论文作者查询 -->
+    <select id="queryPaperByJournal" parameterType="java.lang.String"
+            resultType="com.pyd.paperonlinesystem.entity.Paper">
+        select * from paper where journal = #{journal} order by id desc
+    </select>
+
+    <!-- 根据论文年份查询 -->
+    <select id="queryPaperByYear" parameterType="java.lang.String"
+            resultType="com.pyd.paperonlinesystem.entity.Paper">
+        select * from paper where year = #{year} order by id desc
+    </select>
+
+    <!-- 根据论文名称与种类查询 -->
+    <select id="queryPaperByNameType" parameterType="com.pyd.paperonlinesystem.entity.Paper"
+            resultType="com.pyd.paperonlinesystem.entity.Paper">
+        select * from log where name = #{name} and type = #{type} order by id desc
+    </select>
+
+</mapper>

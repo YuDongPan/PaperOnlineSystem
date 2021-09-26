@@ -7,7 +7,9 @@ package com.pyd.paperonlinesystem.controller;
  * @date: 2021/9/22  21:18
  */
 
+import com.pyd.paperonlinesystem.entity.Log;
 import com.pyd.paperonlinesystem.entity.Paper;
+import com.pyd.paperonlinesystem.service.LogService;
 import com.pyd.paperonlinesystem.service.PaperService;
 import net.sf.json.JSONObject;
 import org.slf4j.Logger;
@@ -21,6 +23,7 @@ import javax.annotation.Resource;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -31,11 +34,14 @@ import java.util.Map;
 @RequestMapping("/file")
 public class FileController {
     @Resource
-    PaperService paperService;
-    private final String filePath = "E:\\literature_workspace\\";
-
+    private PaperService paperService;
+    @Resource
+    private LogService logService;
+    @Value("${springConfigs.params.filePaths}")
+    private String filePath;
     private static final Logger logger = LoggerFactory.getLogger(FileController.class);
 
+    @CrossOrigin(origins = "*",maxAge = 3600)
     @RequestMapping(value = "/upload", method = RequestMethod.POST)
     @ResponseBody
     public JSONObject upload(@RequestParam("file")MultipartFile file, HttpServletRequest request) throws Exception {
@@ -69,6 +75,29 @@ public class FileController {
             final_json.put("data",""); //需要返回的值自定义
             return final_json;
         }
+    }
+
+    @RequestMapping("/insertPaper.do")
+    @ResponseBody
+    public Map<String, Object> insertPaper(HttpServletRequest request, HttpSession session){
+        Map<String, Object> map = new HashMap<String, Object>();
+        String username = request.getParameter("username");
+        String filename = request.getParameter("filename");
+        String journal = request.getParameter("journal");
+        String year = request.getParameter("year");
+        String type = request.getParameter("type");
+        String title = request.getParameter("title");
+        Paper newPaper = new Paper(filename, journal, Integer.valueOf(year), type, filePath, title);
+        if(paperService.insertPaper(newPaper) > 0) {
+            map.put("msg_insert", "ok");
+            String msg = "上传文献";
+            Log log = new Log(username, filename, type, msg);
+            logService.insertLog(log);
+        }
+        else {
+            map.put("msg_insert", "error");
+        }
+        return map;
     }
 
     //上传文件
@@ -108,12 +137,9 @@ public class FileController {
     }
 */
     //下载文件
-    @GetMapping(value = "/download")
-    public void downloadFile(@RequestParam(name = "file_name") String fileName,
-                             HttpServletRequest request,
-                             HttpServletResponse response) throws IOException {
+    @RequestMapping(value = "/download/{name}/{type}")
+    public void downloadFile(@PathVariable("name") String fileName, @PathVariable("type") String type, HttpServletResponse response, HttpSession session) throws IOException {
         //logger.info("download....file_name:" + fileName);
-
         File file = new File(filePath + "/" + fileName);
         if (file.exists()) { //判断文件是否存在
             response.setContentType("application/force-download");
@@ -138,6 +164,10 @@ public class FileController {
             try {
                 bis.close();
                 fis.close();
+                String username = (String)session.getAttribute("loginUsername");
+                String msg = "下载文献";
+                Log log = new Log(username, fileName, type, msg);
+                logService.insertLog(log);
             } catch (IOException e) {
                 e.printStackTrace();
             }

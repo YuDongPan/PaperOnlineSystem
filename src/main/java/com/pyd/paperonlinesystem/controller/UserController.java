@@ -45,11 +45,10 @@ public class UserController {
     public String loginByUser(User user, HttpServletRequest request, HttpSession session, Model model){
         Map<String, Object> map = new HashMap<String, Object>();
         String username = request.getParameter("username");
-        System.out.println("username:" + username);
-        System.out.println("user:" + user);
-        if(userService.queryByUser(user) != null){
+        User loginUser = userService.queryByUser(user);
+        if(loginUser != null){
             session.setAttribute("loginUsername", username);
-            session.setAttribute("User", user);
+            session.setAttribute("loginUser", loginUser);
             model.addAttribute("msg_login", "success");
         }
         else{
@@ -173,6 +172,14 @@ public class UserController {
             model.addAttribute("msg","no");
         }
         return "user/rectifypsw";
+    }
+
+    //用户退出
+    @RequestMapping("/exit.do")
+    public String exit(HttpSession session,Model model){
+        session.removeAttribute("loginUsername");
+        session.removeAttribute("loginUser");
+        return "/login";
     }
 
 }

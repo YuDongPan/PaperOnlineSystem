@@ -2,18 +2,23 @@ package com.pyd.paperonlinesystem.controller;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.pyd.paperonlinesystem.entity.Log;
 import com.pyd.paperonlinesystem.entity.Paper;
 import com.pyd.paperonlinesystem.entity.User;
+import com.pyd.paperonlinesystem.service.LogService;
 import com.pyd.paperonlinesystem.service.PaperService;
 import com.pyd.paperonlinesystem.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import java.io.File;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -27,11 +32,14 @@ import java.util.Map;
 @Controller
 @RequestMapping("/paper")
 public class PaperController{
-    private final String filePath = "E:\\literature_workspace\\";
+    @Value("${springConfigs.params.filePaths}")
+    private String filePath;
     @Autowired
     private PaperService paperService;
     @Autowired
     private UserService userService;
+    @Autowired
+    private LogService logService;
     @RequestMapping("/selectUserList.do")
     @ResponseBody
     public Map<String,Object> selectUserList(@RequestParam(name="condition",required = false)String condition, @RequestParam(required=false,defaultValue="1") Integer page, @RequestParam(required=false,defaultValue="5") Integer limit){
@@ -56,23 +64,30 @@ public class PaperController{
         return map;
     }
 
-    @RequestMapping("/insertPaper.do")
-    @ResponseBody
-    public Map<String, Object> insertPaper(HttpServletRequest request){
-        Map<String, Object> map = new HashMap<String, Object>();
-        String filename = request.getParameter("filename");
-        String journal = request.getParameter("journal");
-        String year = request.getParameter("year");
-        String type = request.getParameter("type");
-        String title = request.getParameter("title");
-        Paper newPaper = new Paper(filename, journal, Integer.valueOf(year), type, filePath, title);
-        if(paperService.insertPaper(newPaper) > 0) {
-            map.put("msg_insert", "ok");
+    @RequestMapping("/deletePaper/{id}/{type}")
+    @Transactional(rollbackFor = Exception.class)
+    public String deletePaper(@PathVariable("id") String id, @PathVariable("type") String type, Model model, HttpSession session){
+        // 删除数据库里的文件记录
+        Integer fid = Integer.valueOf(id);
+        Paper newPaper = paperService.queryPaperById(fid);
+        String fileName = newPaper.getName();
+        String username = (String)session.getAttribute("loginUsername");
+        if(paperService.deletePaperByName(fileName) > 0){
+            model.addAttribute("msg_delete", "ok");
+            String msg = "删除文献";
+            Log log = new Log(username, fileName, type, msg);
+            logService.insertLog(log);
         }
-        else {
-            map.put("msg_insert", "error");
+        else{
+            model.addAttribute("msg_delete", "error");
         }
-        return map;
+        // 删除本地磁盘上的文件记录
+        File file = new File(filePath + fileName);
+        if(file.exists() && file.isFile()){
+            // 删除文件
+            file.delete();
+        }
+        return "/paper/paper_search_admin";
     }
 
     @RequestMapping("/selectPaperList.do")
@@ -91,7 +106,7 @@ public class PaperController{
         }
         //使用pageInfo包装查询
         PageInfo<Paper> rolePageInfo = new PageInfo<>(papers);
-        Map<String,Object> map = new HashMap<String,Object>();
+        Map<String,Object> map = new HashMap<>();
         map.put("code",0);
         map.put("msg","");
         map.put("count", rolePageInfo.getTotal());

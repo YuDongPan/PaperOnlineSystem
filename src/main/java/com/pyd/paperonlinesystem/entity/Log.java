@@ -12,28 +12,18 @@ public class Log {
     private Integer id;
     private String username;
     private String paper_name;
-    private String paper_time;
+    private String paper_type;
     private String msg;
     private Timestamp deal_time;
 
     public Log() {
     }
 
-    public Log(Integer id, String username, String paper_name, String paper_time, String msg, Timestamp deal_time) {
-        this.id = id;
+    public Log(String username, String paper_name, String paper_type, String msg) {
         this.username = username;
         this.paper_name = paper_name;
-        this.paper_time = paper_time;
+        this.paper_type = paper_type;
         this.msg = msg;
-        this.deal_time = deal_time;
-    }
-
-    public Log(String username, String paper_name, String paper_time, String msg, Timestamp deal_time) {
-        this.username = username;
-        this.paper_name = paper_name;
-        this.paper_time = paper_time;
-        this.msg = msg;
-        this.deal_time = deal_time;
     }
 
     public Integer getId() {
@@ -48,6 +38,10 @@ public class Log {
         return username;
     }
 
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
     public String getPaper_name() {
         return paper_name;
     }
@@ -56,12 +50,12 @@ public class Log {
         this.paper_name = paper_name;
     }
 
-    public String getPaper_time() {
-        return paper_time;
+    public String getPaper_type() {
+        return paper_type;
     }
 
-    public void setPaper_time(String paper_time) {
-        this.paper_time = paper_time;
+    public void setPaper_type(String paper_type) {
+        this.paper_type = paper_type;
     }
 
     public String getMsg() {
@@ -80,4 +74,15 @@ public class Log {
         this.deal_time = deal_time;
     }
 
+    @Override
+    public String toString() {
+        return "Log{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", paper_name='" + paper_name + '\'' +
+                ", paper_type='" + paper_type + '\'' +
+                ", msg='" + msg + '\'' +
+                ", deal_time=" + deal_time +
+                '}';
+    }
 }

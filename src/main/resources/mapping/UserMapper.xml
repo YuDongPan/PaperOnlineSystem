@@ -51,7 +51,7 @@
                 or phonenumber like #{condition}
             </if>
         </where>
-        order by id desc
+        order by id asc
     </select>
 
     <!--查询所有用户-->

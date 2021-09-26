@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="<%=basePath%>/css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="<%=basePath%>/css/bootstrap-responsive.min.css" type="text/css">
     <link rel="stylesheet" href="<%=basePath%>/css/register.css" type="text/css">
-    <link rel="stylesheet" href="<%=basePath%>/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="<%=basePath%>/font-awesome-4.7.0/css/font-awesome.min.css" type="text/css">
     <link rel="stylesheet" href="<%=basePath%>/css/rectifypsw.css" type="text/css">
     <script src="<%=basePath%>/sweetalert-1.1.3/dist/sweetalert.min.js"></script>
     <link rel="stylesheet" type ="text/css" href="<%=basePath%>/sweetalert-1.1.3/dist/sweetalert.css">

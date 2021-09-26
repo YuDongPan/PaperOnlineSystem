@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pyd.paperonlinesystem.mapper.EchartsMapper">
+    <resultMap id="BaseResultMap" type="com.pyd.paperonlinesystem.entity.Paper">
+        <result column="id" jdbcType="INTEGER" property="id"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="type" jdbcType="VARCHAR" property="type"/>
+        <result column="journal" jdbcType="VARCHAR" property="journal"/>
+        <result column="year" jdbcType="INTEGER" property="year"/>
+        <result column="path" jdbcType="VARCHAR" property="path"/>
+        <result column="upload_time" jdbcType="VARCHAR" property="upload_time"/>
+        <result column="title" jdbcType="VARCHAR" property="title"/>
+    </resultMap>
+
+<!-- 查询文献列表中EEG文献类型的数量-->
+<select id="queryEEGPaperCnt" resultType="int">
+    select count(*) from paper where type = 'eeg'
+</select>
+
+<!-- 查询文献列表中MIP文献类型的数量-->
+<select id="queryMIPPaperCnt" resultType="int">
+    select count(*) from paper where type = 'mip'
+</select>
+
+<!-- 查询10年前的文献数量-->
+<select id="queryPaper10yearsAgo" resultType="int">
+    select count(*) from paper where year(now()) - year > 10
+</select>
+
+<!-- 查询近10年的文献年份分布-->
+<select id="queryPaperIn10years" resultType="com.pyd.paperonlinesystem.entity.Paper">
+    select * from paper where year(now()) - year &lt;= 10
+</select>
+
+<!-- 查询各个期刊的文献分布-->
+<select id="queryJournalDistribution" resultType="com.pyd.paperonlinesystem.entity.Paper">
+    select * from paper
+</select>
+
+<!-- 根据日志列表查询去年系统运营情况-->
+<select id="queryOperationLastYear" resultType="int">
+    select count(*) from log where year(deal_time)=year(date_sub(now(),interval 1 year))
+</select>
+
+<!-- 根据日志列表查询上一季度系统运营情况-->
+<select id="queryOperationLastQuarter" resultType="int">
+    select count(*) from log
+    where quarter(deal_time)=quarter(DATE_SUB(now(),interval 1 quarter)) and year(deal_time)=year(now())
+</select>
+
+<!-- 根据日志列表查询过去七天系统运营情况-->
+<select id="queryOperationLastSevenDays" resultType="int">
+    select count(*) from log where date_sub(curdate(),interval 7 day) &lt;= date(deal_time);
+</select>
+
+<!-- 根据日志列表查询上一个月运营情况-->
+<select id="queryOperationLastMonth" resultType="int">
+    select count(*) from log
+    where period_diff(date_format(now(),'%Y%m'),date_format(deal_time,'%Y%m'))=1;
+</select>
+
+<!-- 根据日志列表查询昨天系统运营情况-->
+<select id="queryOperationYesterday" resultType="int">
+    select count(*) from log where to_days(now()) - to_days(deal_time) = 1;
+</select>
+
+<!-- 根据日志列表查询今天系统运营情况-->
+<select id="queryOperationToday" resultType="int">
+    select count(*) from log where to_days(now()) = to_days(deal_time);
+</select>
+</mapper>

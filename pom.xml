@@ -43,14 +43,14 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.1.0</version>
+        </dependency>
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.thymeleaf</groupId>
-            <artifactId>thymeleaf</artifactId>
-            <version>3.0.2.RELEASE</version>
         </dependency>
 
         <dependency>
@@ -59,11 +59,12 @@
             <version>3.0.2.RELEASE</version>
         </dependency>
 
+
         <!-- 引入SpringBoot内嵌Tomcat对jsp的解析依赖，不添加这个解析不了jsp -->
-        <dependency>
+<!--        <dependency>
             <groupId>org.apache.tomcat.embed</groupId>
             <artifactId>tomcat-embed-jasper</artifactId>
-        </dependency>
+        </dependency>-->
 
         <!--kptcha实现图片验证码-->
         <dependency>
@@ -80,10 +81,16 @@
         </dependency>
 
         <!--pageHelper:用于分页-->
-        <dependency>
+        <!--<dependency>
             <groupId>com.github.pagehelper</groupId>
             <artifactId>pagehelper</artifactId>
             <version>5.1.2</version>
+        </dependency>-->
+
+        <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper-spring-boot-starter</artifactId>
+            <version>1.2.5</version>
         </dependency>
 
         <!--junit:用于测试-->
@@ -109,13 +116,25 @@
             <classifier>jdk15</classifier>
         </dependency>
 
+        <!--支持热启动-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <optional>true</optional>
+        </dependency>
     </dependencies>
 
     <build>
+        <!--打包的名称(jar或war)-->
+        <finalName>PaperOnlineSystem</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <!--如果没有fork配置,devtools不起作用，即项目修改后不会重新启动 -->
+                    <fork>true</fork>
+                </configuration>
             </plugin>
         </plugins>
 
@@ -136,5 +155,4 @@
             </resource>
         </resources>
     </build>
-
 </project>

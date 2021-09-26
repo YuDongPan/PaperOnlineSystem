@@ -21,6 +21,7 @@ public class LogService {
     public int insertLog(Log log){
         return logMapper.insertLog(log);
     }
+    public List<Log> queryAllLog() {return logMapper.queryAllLog();}
     public List<Log> queryLogByCondition(String condition){
         return logMapper.queryLogByCondition(condition);
     }

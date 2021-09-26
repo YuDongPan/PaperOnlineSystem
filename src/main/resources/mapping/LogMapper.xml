@@ -3,6 +3,7 @@
 <mapper namespace="com.pyd.paperonlinesystem.mapper.LogMapper">
     <resultMap id="BaseResultMap" type="com.pyd.paperonlinesystem.entity.Log">
         <result column="id" jdbcType="INTEGER" property="id"/>
+        <result column="username" jdbcType="VARCHAR" property="username"/>
         <result column="paper_name" jdbcType="VARCHAR" property="paper_name"/>
         <result column="paper_type" jdbcType="VARCHAR" property="paper_type"/>
         <result column="msg" jdbcType="VARCHAR" property="msg"/>
@@ -11,8 +12,13 @@
 
     <!-- 插入日志-->
     <insert id="insertLog" parameterType="com.pyd.paperonlinesystem.entity.Log">
-        insert into log(paper_name, paper_type, msg, deal_time) values(#{paper_name}, #{paper_type}, #{msg}, #{deal_time})
+        insert into log(username, paper_name, paper_type, msg) values(#{username}, #{paper_name}, #{paper_type}, #{msg})
     </insert>
+
+    <!-- 查询所有日志-->
+    <select id="queryAllLog" resultType="com.pyd.paperonlinesystem.entity.Log">
+        select * from log
+    </select>
 
     <!-- 分页功能 -->
     <select id="queryLogByCondition" parameterType="java.lang.String"

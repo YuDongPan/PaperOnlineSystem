@@ -44,7 +44,7 @@
                     </a>
                     <dl class="layui-nav-child">
                         <dd>
-                            <a href="<%=basePath%>/user/userDataSearch.jsp" target="_blank">系统可视化数据</a>
+                            <a href="<%=basePath%>/paper/paperDataSearch.jsp" target="_blank">系统可视化数据</a>
                         </dd>
                         <dd>
                             <a href="<%=basePath%>/user/rectifypsw.jsp" target="_blank">密码修改</a>
@@ -61,7 +61,7 @@
                     </a>
                     <dl class="layui-nav-child">
                         <dd>
-                            <a href="<%=basePath%>/bank/user_information.jsp" target="right">个人信息</a>
+                            <a href="<%=basePath%>/user/user_information.jsp" target="right">个人信息</a>
                         </dd>
                         <dd>
                             <a href="<%=basePath%>/user/rectifypsw_first.jsp" target="_blank">密码修改</a>
@@ -73,7 +73,7 @@
                 </c:if>
             </li>
             <li class="layui-nav-item">
-                <a href="<%=basePath%>/login.jsp">安全退出</a>
+                <a href="<%=basePath%>/user/exit.do">安全退出</a>
             </li>
         </ul>
     </div>
@@ -87,13 +87,13 @@
                         <a class="" href="javascript:;">文献管理</a>
                         <dl class="layui-nav-child">
                             <dd>
-                                <a href="<%=basePath%>/paper/paper_upload.jsp" target="right">文献上传</a>
+                                <a href="<%=basePath%>/paper/paper_upload_admin.jsp" target="right">文献上传</a>
                             </dd>
                             <dd>
-                                <a href="<%=basePath%>/paper/paper_download.jsp" target="right">文献下载</a>
+                                <a href="<%=basePath%>/paper/paper_download_admin.jsp" target="right">文献下载</a>
                             </dd>
                             <dd>
-                                <a href="<%=basePath%>/paper/paper_search.jsp" target="right">文献查询</a>
+                                <a href="<%=basePath%>/paper/paper_search_admin.jsp" target="right">文献查询</a>
                             </dd>
                         </dl>
                     </li>
@@ -118,7 +118,7 @@
                                 <a href="<%=basePath%>/user/register.jsp" target="_blank">注册页面</a>
                             </dd>
                             <dd>
-                                <a href="<%=basePath%>/user/userDataSearch.jsp" target="_blank">数据可视化</a>
+                                <a href="<%=basePath%>/paper/paperDataSearch.jsp" target="_blank">数据可视化</a>
                             </dd>
                             <dd>
                                 <a href="<%=basePath%>/user/rectifypsw_first.jsp" target="_blank">密码修改</a>
@@ -138,10 +138,13 @@
                         <a class="" href="javascript:;">文献管理</a>
                         <dl class="layui-nav-child">
                             <dd>
-                                <a href="<%=basePath%>/paper/paper_download.jsp" target="right">文献下载</a>
+                                <a href="<%=basePath%>/paper/paper_upload_user.jsp" target="right">文献上传</a>
                             </dd>
                             <dd>
-                                <a href="<%=basePath%>/paper/paper_search.jsp" target="right">文献查询</a>
+                                <a href="<%=basePath%>/paper/paper_download_user.jsp" target="right">文献下载</a>
+                            </dd>
+                            <dd>
+                                <a href="<%=basePath%>/paper/paper_search_user.jsp" target="right">文献查询</a>
                             </dd>
                         </dl>
                     </li>
@@ -155,7 +158,7 @@
                                 <a href="<%=basePath%>/user/register.jsp" target="_blank">注册页面</a>
                             </dd>
                             <dd>
-                                <a href="<%=basePath%>/user/userDataSearch.jsp" target="_blank">数据可视化</a>
+                                <a href="<%=basePath%>/paper/paperDataSearch.jsp" target="_blank">数据可视化</a>
                             </dd>
                             <dd>
                                 <a href="<%=basePath%>/user/rectifypsw_first.jsp" target="_blank">密码修改</a>

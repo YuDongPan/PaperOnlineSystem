@@ -40,7 +40,13 @@
                 or title like #{condition}
             </if>
         </where>
-        order by id desc
+        order by id asc
+    </select>
+
+    <!-- 根据论文id查询 -->
+    <select id="queryPaperById" parameterType="java.lang.Integer"
+            resultType="com.pyd.paperonlinesystem.entity.Paper">
+        select * from paper where id = #{id}
     </select>
 
     <!-- 根据论文名称查询 -->
@@ -79,5 +85,9 @@
             resultType="com.pyd.paperonlinesystem.entity.Paper">
         select * from log where name = #{name} and type = #{type} order by id desc
     </select>
+
+    <delete id="deletePaperByName" parameterType="java.lang.String">
+        delete from paper where name = #{name}
+    </delete>
 
 </mapper>

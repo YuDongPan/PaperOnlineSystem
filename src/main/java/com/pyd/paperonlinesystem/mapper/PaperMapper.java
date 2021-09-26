@@ -12,8 +12,10 @@ import java.util.List;
  */
 public interface PaperMapper {
     int insertPaper(Paper paper);
+    int deletePaperByName(String name);
     List<Paper> queryAllPaper();
     List<Paper> queryPaperByCondition(String condition);
+    Paper queryPaperById(Integer id);
     List<Paper> queryPaperByName(String name);
     List<Paper> queryPaperByNameType(Paper paper);
     List<Paper> queryPaperByType(String type);

@@ -13,7 +13,6 @@ import java.io.IOException;
  * @date: 2021/9/22  21:35
  */
 @Component
-
 public class SimpleCORSFilter implements Filter {
 
     public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) throws IOException, ServletException, ServletException {
@@ -27,7 +26,6 @@ public class SimpleCORSFilter implements Filter {
         response.setHeader("Access-Control-Max-Age", "3600");
 
         response.setHeader("Access-Control-Allow-Headers", "access-control-allow-origin, authority, content-type, version-info, X-Requested-With");
-
 
 
         chain.doFilter(req, res);

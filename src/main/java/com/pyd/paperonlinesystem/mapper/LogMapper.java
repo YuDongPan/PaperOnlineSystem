@@ -12,6 +12,7 @@ import java.util.List;
  */
 public interface LogMapper {
     int insertLog(Log log);
+    List<Log> queryAllLog();
     List<Log> queryLogByCondition(String condition);
     List<Log> queryLogByUsername(String username);
     List<Log> queryLogByUsernameType(Log log);

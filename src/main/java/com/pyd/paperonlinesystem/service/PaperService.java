@@ -21,8 +21,12 @@ public class PaperService{
     public int insertPaper(Paper paper){
         return paperMapper.insertPaper(paper);
     }
+    public int deletePaperByName(String name) { return paperMapper.deletePaperByName(name);}
     public List<Paper> queryPaperByCondition(String condition){
         return paperMapper.queryPaperByCondition(condition);
+    }
+    public Paper queryPaperById(Integer id){
+        return paperMapper.queryPaperById(id);
     }
     public List<Paper> queryPaperByName(String name){
         return paperMapper.queryPaperByName(name);

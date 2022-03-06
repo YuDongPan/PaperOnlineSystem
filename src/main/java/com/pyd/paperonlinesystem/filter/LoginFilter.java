@@ -33,7 +33,7 @@ public class LoginFilter implements Filter{
         int has_Admin = context.indexOf("admin");
         String identity = (String)session.getAttribute("loginUsername");
         if(identity != null){
-           if(identity.equals("admin")) {
+           if(identity.equals("admin") || identity.equals("eeglab")) {
                 //通行
                 chain.doFilter(request, response);
             }

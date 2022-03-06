@@ -74,7 +74,7 @@
                             " aria-hidden='true'></i>";
                         return icon + str[0];
                     }},
-                {field:'paper_type',width:100,tistle:'类型',align:'center'},
+                {field:'paper_type',width:100,title:'类型',align:'center'},
                 {field:'msg',width:170,title:'处理操作',align:'center'},
                 {field:"deal_time", width:250,title:'处理时间',align:'center', templet:function(d){
                         return layui.util.toDateString(d.deal_time, "yyyy-MM-dd HH:mm:ss");

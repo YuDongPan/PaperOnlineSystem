@@ -136,7 +136,7 @@
                     </div>
                     <!-- 返回首页 -->
                     <div align="center">
-                        <button type="button" class="snd" onclick="window.location.href='<%=basePath%>/index.jsp'">
+                        <button type="button" class="snd" onclick="window.location.href='<%=basePath%>/indexCarousel.jsp'">
                             <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                             返回首页
                         </button>

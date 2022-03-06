@@ -38,7 +38,7 @@
         <ul class="layui-nav layui-layout-right">
 
             <li class="layui-nav-item">
-                <c:if test="${loginUsername.equals('admin')}">
+                <c:if test="${loginUsername.equals('admin') or loginUsername.equals('eeglab')}">
                     <a href="javascript:;">
                         <img src="<%=basePath%>/images/1.gif" class="layui-nav-img"> 管理员
                     </a>
@@ -55,7 +55,7 @@
                     </dl>
                 </c:if>
 
-                <c:if test="${loginUsername != 'admin'}">
+                <c:if test="${loginUsername != 'admin' and loginUsername != 'eeglab'}">
                     <a href="javascript:;">
                         <img src="<%=basePath%>/images/1.gif" class="layui-nav-img">${loginUsername}
                     </a>
@@ -81,7 +81,7 @@
     <div class="layui-side layui-bg-black">
         <div class="layui-side-scroll">
             <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
-            <c:if test="${loginUsername.equals('admin')}">
+            <c:if test="${loginUsername.equals('admin') or loginUsername.equals('eeglab')}">
                 <ul class="layui-nav layui-nav-tree" lay-filter="test">
                     <li class="layui-nav-item layui-nav-itemed">
                         <a class="" href="javascript:;">文献管理</a>
@@ -132,7 +132,7 @@
                 </ul>
             </c:if>
 
-            <c:if test="${loginUsername != 'admin'}">
+            <c:if test="${loginUsername != 'admin' and loginUsername != 'eeglab'}">
                 <ul class="layui-nav layui-nav-tree" lay-filter="test">
                     <li class="layui-nav-item layui-nav-itemed">
                         <a class="" href="javascript:;">文献管理</a>

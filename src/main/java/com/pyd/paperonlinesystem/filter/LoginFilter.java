@@ -38,10 +38,11 @@ public class LoginFilter implements Filter{
                 chain.doFilter(request, response);
             }
             else{
+                // 访问的资源是管理员页面
                 if(has_Admin != -1){
                     httpResponse.sendRedirect("../user/unauthorized_admin.jsp");
                 }
-                //通行
+                // 访问的资源是非管理员资源,放行
                 else {
                     chain.doFilter(request, response);
                 }

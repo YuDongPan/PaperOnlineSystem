@@ -62,7 +62,7 @@
                             <a href="<%=basePath%>/user/rectifypsw_first.jsp" target="_blank">忘记密码？</a>
                         </div>
                     </div>
-                    <input type="button" value="登录" class="btn" onclick="Checklogin()" />
+                    <input type="button" id="login_btn" value="登录" class="btn" onclick="Checklogin()" />
                 </div>
             </form>
         </div>
@@ -125,6 +125,13 @@
             }
         });
     }
+
+    // 回车事件绑定
+    $(document).bind('keydown', function (event){
+        if(event.keyCode === 13){
+            $('#login_btn').click();
+        }
+    });
 
 </script>
 </body>

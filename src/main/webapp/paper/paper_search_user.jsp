@@ -75,7 +75,7 @@
                 {field:'journal',width:100,title:'期刊',align:'center'},
                 {field:'year',width:100,title:'年份',align:'center'},
                 {field:'type',width:100,title:'类型',align:'center'},
-                {field:'title',width:300,title:'标题',align:'center', style:'white-space:nowrap;word-break:keep-all;overflow:hidden;text-overflow'},
+                {field:'title',width:300,title:'研究方向',align:'center', style:'white-space:nowrap;word-break:keep-all;overflow:hidden;text-overflow'},
                 {width:120,title:'操作',align:'center', style:'padding-top:20px', templet:function(d){
                         var str = d.name.split('.');
                         var fileType = str[1];
@@ -84,7 +84,7 @@
                         var pos=curWwwPath.indexOf(pathName);
                         var localhostPath=curWwwPath.substring(0,pos);
                         if(fileType == 'pdf')
-                            return "<a target='_blank' style='display:block' title='预览' href='" + localhostPath + "/pdfjs/web/viewer.html?file=http://localhost:8080/media/preview/" +
+                            return "<a target='_blank' style='display:block' title='预览' href='" + "<%=basePath%>pdfjs/web/viewer.html?file=<%=basePath%>media/preview/" +
                                 d.id + "'>" + "<i class='fa fa-arrows-alt' aria-hidden='true'></i></a>";
                         //if(fileType == 'pdf')
                         //return "<button class='previewBtn' id='preBtn" + d.id + "'title='预览'><i class='fa fa-arrows-alt' aria-hidden='true'></i></button>";

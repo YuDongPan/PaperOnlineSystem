@@ -1,0 +1,15 @@
+2022-03-05 21:59:46,748 [restartedMain] INFO  c.p.p.PaperOnlineSystemApplication - Starting PaperOnlineSystemApplication using Java 1.8.0_191 on LAPTOP-G7S1G36P with PID 28876 (E:\IDEA_Project\PaperOnlineSystem\target\classes started by panyd_academy in E:\IDEA_Project\PaperOnlineSystem)
+2022-03-05 21:59:46,750 [restartedMain] INFO  c.p.p.PaperOnlineSystemApplication - The following profiles are active: dev
+2022-03-05 21:59:46,785 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-03-05 21:59:46,785 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-03-05 21:59:47,596 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2022-03-05 21:59:47,602 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2022-03-05 21:59:47,603 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2022-03-05 21:59:47,603 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.52]
+2022-03-05 21:59:47,780 [restartedMain] INFO  o.apache.jasper.servlet.TldScanner - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2022-03-05 21:59:47,785 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2022-03-05 21:59:47,786 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 998 ms
+2022-03-05 21:59:48,301 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2022-03-05 21:59:48,314 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2022-03-05 21:59:48,331 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2022-03-05 21:59:48,339 [restartedMain] INFO  c.p.p.PaperOnlineSystemApplication - Started PaperOnlineSystemApplication in 1.895 seconds (JVM running for 2.652)

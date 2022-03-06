@@ -41,7 +41,7 @@
                 <th width="130" style="text-align:center">上传进度</th>
                 <th width="100" style="text-align:center">期刊</th>
                 <th width="70"  style="text-align:center">年份</th>
-                <th width="200" style="text-align:center">标题</th>
+                <th width="200" style="text-align:center">研究方向</th>
                 <th width="100" style="text-align:center">标签</th>
                 <th width="100" style="text-align:center">操作</th>
             </tr></thead>

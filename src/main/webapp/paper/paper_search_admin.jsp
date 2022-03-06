@@ -80,7 +80,7 @@
                 {field:'journal',width:100,title:'期刊',align:'center'},
                 {field:'year',width:100,title:'年份',align:'center'},
                 {field:'type',width:100,title:'类型',align:'center'},
-                {field:'title',width:300,title:'标题',align:'center', style:'white-space:nowrap;word-break:keep-all;overflow:hidden;text-overflow'},
+                {field:'title',width:300,title:'研究方向',align:'center', style:'white-space:nowrap;word-break:keep-all;overflow:hidden;text-overflow'},
                 {width:170,title:'操作',align:'center', style:'padding-top:20px', templet:function(d){
                         var str = d.name.split('.');
                         var fileType = str[1];

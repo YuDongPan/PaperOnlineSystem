@@ -42,7 +42,7 @@
                     <th width="130" style="text-align:center">上传进度</th>
                     <th width="100" style="text-align:center">期刊</th>
                     <th width="70"  style="text-align:center">年份</th>
-                    <th width="200" style="text-align:center">标题</th>
+                    <th width="200" style="text-align:center">研究方向</th>
                     <th width="100" style="text-align:center">标签</th>
                     <th width="100" style="text-align:center">操作</th>
                 </tr></thead>
@@ -63,7 +63,7 @@
         var uploadListIns = upload.render({
             elem: '#testList'
             , elemList: $('#demoList') //列表元素对象
-            , url: 'http://127.0.0.1:8080/file/upload' //此处用的是第三方的 http 请求演示，实际使用时改成您自己的上传接口即可。
+            , url: '<%=basePath%>/file/upload' //此处用的是第三方的 http 请求演示，实际使用时改成您自己的上传接口即可。
             , accept: 'file'
             , multiple: true
             , number: 5

@@ -75,7 +75,7 @@
                 {field:'journal',width:100,title:'期刊',align:'center'},
                 {field:'year',width:100,title:'年份',align:'center'},
                 {field:'type',width:100,title:'类型',align:'center'},
-                {field:'title',width:300,title:'标题',align:'center', style:'white-space:nowrap;word-break:keep-all;overflow:hidden;text-overflow'},
+                {field:'title',width:300,title:'研究方向',align:'center', style:'white-space:nowrap;word-break:keep-all;overflow:hidden;text-overflow'},
                 {width:120,title:'操作',align:'center', style:'padding-top:20px', templet:function(d){
                         return "<a style='display:block' href='<%=basePath%>/file/download/" + d.name + "/" + d.type + "'><i class='fa fa-cloud-download' aria-hidden='true'></i></a>";
                     }},

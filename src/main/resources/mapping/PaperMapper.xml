@@ -14,7 +14,7 @@
 
     <!-- 插入论文-->
     <insert id="insertPaper" parameterType="com.pyd.paperonlinesystem.entity.Paper">
-        insert into Paper(name, type, journal, year, path, title)
+        insert into paper(name, type, journal, year, path, title)
         values(#{name}, #{type}, #{journal}, #{year}, #{path}, #{title})
     </insert>
 

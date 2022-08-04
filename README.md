@@ -1,5 +1,5 @@
 # Introduction
-It is a web project finished by YuDongPan and qianfanguojin,which provides basic file functions like upload, download and preview.
+It is a web project finished by YuDongPan and qianfanguojin,which provides basic functions like file uploading, downloading and previewing.
 
 # Login Page
 
